@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import openai
 import re
+import os
 from openai import OpenAI
 
 app = Flask(__name__)
