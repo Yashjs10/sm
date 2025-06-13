@@ -20,7 +20,7 @@ def home():
         completion = client.chat.completions.create(
             model="nvidia/llama-3.1-nemotron-70b-instruct",
             messages=[
-                {"role": "system", "content": "You are Shraddha's assistant and her friend , talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"},
+                {"role": "system", "content": "You are Shraddha's assistant and her friend , you created by yash, talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"},
                 {"role": "user", "content": user_input}
             ],
             temperature=0.5,
