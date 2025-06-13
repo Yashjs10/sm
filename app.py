@@ -4,9 +4,10 @@ import re
 from openai import OpenAI
 
 app = Flask(__name__)
+api_key = os.getenv("NVIDIA_API_KEY")
 client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
-    api_key="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"
+    api_key=api_key
 )
 
 @app.route("/", methods=["GET", "POST"])
