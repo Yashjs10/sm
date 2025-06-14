@@ -1,31 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@500&display=swap');
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(#ffe0ec, #fff);
+    font-family: 'Quicksand', sans-serif;
+    background: radial-gradient(ellipse at top, #ffdee9, #b5fffc);
+    margin: 0;
+    padding: 3em 1em;
     text-align: center;
-    padding: 2em;
+    overflow: hidden;
+    position: relative;
+    overflow-y: hidden;
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.2;
+    z-index: 0;
+    animation: twinkle 60s linear infinite;
+
+}
+
+@keyframes twinkle {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+
+.floating-hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -50px; /* start from below screen */
+  font-size: 2.5rem;
+  animation: floatHearts 10s linear infinite;
+  opacity: 0.7;
+  transform: translateX(0);
+}
+
+.floating-hearts span:nth-child(n) {
+  left: calc(10% * var(--i));
+  animation-delay: calc(1s * var(--i));
+  animation-duration: calc(5s + var(--i) * 2s);
+}
+
+/* Floating upward with slight drift */
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(20px) scale(1);
+    opacity: 0;
+  }
+}
+
+
 .container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 2em;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2em;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+  position: relative;
+  z-index: 2;
+  margin-top: 10vh;
+  backdrop-filter: blur(10px);
+  text-align: center; /* center all content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Adjusted glow and animation for float-text */
+.float-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #c91e7c;
+  animation: float 4s ease-in-out infinite;
+  text-shadow: 0 0 3px #ffdde9, 0 0 8px #ffc1e3;
+  transition: 0.3s ease-in-out;
+}
+
+
+h2 {
+    color: #ff1493;
+    font-size: 1.4em;
+    margin-top: -10px;
+}
+
 input, button {
-    padding: 10px;
+    padding: 12px;
     margin-top: 1em;
     width: 80%;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
+    font-size: 1em;
+    transition: 0.3s ease;
 }
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 15px #ff69b4;
+}
+
 button {
-    background: #ff69b4;
+    background: linear-gradient(to right, #ff69b4, #ff1493);
     color: white;
+    font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
 }
-h2{
-    color: #ff69b4;
-    font-size: 1.5em;
-    padding-top: 0px;
+
+button:hover {
+    background: #ff1493;
+    transform: scale(1.05);
+}
+
+.response {
+    margin-top: 1em;
+    color: #bd067a;
+    font-style: italic;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
