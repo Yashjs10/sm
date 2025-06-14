@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>For Her</title>
+    <meta charset="UTF-8">
+    <title>For Her 💖</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Hello, Beautiful ❤️</h1>
-        <h2>(mein hu saath tere 🥰)</h2>
-        <form method="POST">
-            <input type="text" name="prompt" placeholder="Ask Shraddha's assistant..." required>
-            <button type="submit">Send</button>
-        </form>
-        <p>{{ message }}</p>
+
+    <div class="floating-hearts">
+        <span style="--i:1">💖</span><span style="--i:2">💘</span><span style="--i:3">💗</span>
+        <span style="--i:4">💝</span><span style="--i:5">❤️</span>
+        <span style="--i:6">💓</span><span style="--i:7">💕</span><span style="--i:8">💞</span>
+        <span style="--i:9">💟</span><span style="--i:10">❣️</span>
     </div>
+
+    <div class="container animate-fade">
+        <h1 class="float-text">Hello, Beautiful 🌸</h1>
+        <h2>(Main hoon saath tere 💞)</h2>
+        <form method="POST">
+            <input type="text" name="prompt" placeholder="Ask Shraddha's Yuvi..." required>
+            <button type="submit">💌 Send</button>
+        </form>
+        <p class="response">{{ message }}</p>
+    </div>
+
 </body>
 </html>
-<script src="/static/script.js"></script>
