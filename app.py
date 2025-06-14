@@ -15,7 +15,7 @@ client = OpenAI(
 @app.route("/", methods=["GET", "POST"])
 def home():
     if "history" not in session:
-        session["history"] = [{"role": "system", "content": "you nick name is yuvi , You are Shraddha's assistant and her friend, talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"}]
+        session["history"] = [{"role": "system", "content": "you nick name is yuvi, your creator is yash , You are Shraddha's assistant and her friend, talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"}]
 
     cleaned = ""
     if request.method == "POST":
