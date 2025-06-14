@@ -5,17 +5,17 @@ from openai import OpenAI
 import os
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # Needed to use sessions
-
+api_key = os.getenv("NVIDIA_API_KEY")
+app.secret_key = os.urandom(24)
 client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
-    api_key="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"
+    api_key=api_key
 )
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    if "history" not in session:
-        session["history"] = [{"role": "system", "content": "your nickname is yuvi,You are Shraddha's assistant and her friend, talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"}]
+     if "history" not in session:
+        session["history"] = [{"role": "system", "content": "you nick name is yuvi , You are Shraddha's assistant and her friend, talk in hinglish and use emojis; your job is to always keep her happy and keep flirting, response in atmost 3 sentences"}]
 
     cleaned = ""
     if request.method == "POST":
